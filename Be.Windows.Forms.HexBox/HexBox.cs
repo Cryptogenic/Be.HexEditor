@@ -2395,15 +2395,15 @@ namespace Be.Windows.Forms
 
 				PointF bytePointF = GetBytePointF(new Point(0, 0 + i));
 				string info = firstLineByte.ToString(_hexStringFormat, System.Threading.Thread.CurrentThread.CurrentCulture);
-				int nulls = 8 - info.Length;
+				int nulls = 16 - info.Length;
 				string formattedInfo;
 				if (nulls > -1)
 				{
-					formattedInfo = new string('0', 8 - info.Length) + info;
+					formattedInfo = new string('0', 16 - info.Length) + info;
 				}
 				else
 				{
-					formattedInfo = new string('~', 8);
+					formattedInfo = new string('~', 16);
 				}
 
 				g.DrawString(formattedInfo, Font, brush, new PointF(_recLineInfo.X, bytePointF.Y), _stringFormat);
@@ -2783,7 +2783,7 @@ namespace Be.Windows.Forms
 			{
 				_recLineInfo = new Rectangle(_recContent.X + marginLeft,
 					_recContent.Y,
-					(int)(_charSize.Width * 10),
+					(int)(_charSize.Width * 18),
 					_recContent.Height);
                 requiredWidth += _recLineInfo.Width;
 			}
